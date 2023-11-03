@@ -1,5 +1,5 @@
 import numpy as np
-# from PIL import Image
+from PIL import Image
 #MNIST CSV Dataset seems to be 28x28 pixels of handwritten numbers
 #First row is from headers, indicating first element in a row is the label or 'name' of the number shown by the pixel data
 #The following elements in the header just show the position of each pixel in the 28 by 28 matrix goes from 1x28..28x28
@@ -15,5 +15,8 @@ print(len(labels))
 
 mnist_training_array = np.genfromtxt(fname="mnist_train.csv", delimiter=",", skip_header=1, usecols=range(1, ((28*28)+1)))
 # print(mnist_training_array)
-for array in mnist_training_array:
-    print(len(array))
+for array in mnist_training_array[0:4]:
+    reshaped_array = np.reshape(array, (28, 28))
+    number_image = Image.fromarray(reshaped_array)
+    number_image.show()
+    # print(len(array))
