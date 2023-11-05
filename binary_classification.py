@@ -1,4 +1,5 @@
 import numpy as np
+import math
 from PIL import Image
 #MNIST CSV Dataset seems to be 28x28 pixels of handwritten numbers
 #First row is from headers, indicating first element in a row is the label or 'name' of the number shown by the pixel data
@@ -20,3 +21,8 @@ for array in mnist_training_array[0:4]:
     number_image = Image.fromarray(reshaped_array)
     number_image.show()
     # print(len(array))
+
+#Sigmoid function
+for x in range(10):
+    sigmoid = 1/(1+math.exp((-1)*x))
+    print(sigmoid)
