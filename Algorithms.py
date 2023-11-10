@@ -27,3 +27,7 @@ class LogisticRegression:
         linear_regression_model = np.dot(self.X, self.W) + self.b
         Y_predicted = self._sigmoid(linear_regression_model)
         return np.array([1 if i>0.5 else 0 for i in Y_predicted])
+    
+    def accuracy(self):
+        accuracy = np.sum(self.Y == self.predict())/len(self.Y)
+        return accuracy
